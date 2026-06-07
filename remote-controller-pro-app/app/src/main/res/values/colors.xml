@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="seed">#1C6DD0</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Dark control-panel palette -->
+    <color name="bg_dark">#0D1117</color>
+    <color name="surface">#161B22</color>
+    <color name="surface_alt">#1C2333</color>
+    <color name="border">#30363D</color>
+    <color name="border_subtle">#21262D</color>
+
+    <!-- Text hierarchy -->
+    <color name="text_primary">#E6EDF3</color>
+    <color name="text_secondary">#8B949E</color>
+    <color name="text_muted">#484F58</color>
+    <color name="text_label">#7D8590</color>
+
+    <!-- Accent colours -->
+    <color name="accent_blue">#58A6FF</color>
+    <color name="accent_blue_deep">#1F6FEB</color>
+    <color name="accent_green">#238636</color>
+    <color name="accent_green_bright">#3FB950</color>
+    <color name="accent_red">#DA3633</color>
+    <color name="accent_red_bright">#F85149</color>
+    <color name="accent_orange">#B94F27</color>
+    <color name="accent_amber">#9E6A03</color>
+    <color name="accent_yellow">#D29922</color>
+
+    <!-- Status colours -->
+    <color name="status_connected">#3FB950</color>
+    <color name="status_connecting">#D29922</color>
+    <color name="status_disconnected">#DA3633</color>
+
+    <!-- Log terminal -->
+    <color name="log_bg">#010409</color>
+    <color name="log_text">#3FB950</color>
+    <color name="log_border">#1B1F23</color>
+</resources>

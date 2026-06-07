@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TcpPro FPV layout:
+  - Left 40%: video frame and video status
+  - Right 60%: connection/status controls and the large joystick area
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/bg_dark"
+    android:padding="8dp">
+
+    <!-- Video pane -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_card">
+
+        <ImageView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/videoHintText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Waiting for video..."
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/videoStatusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_telemetry"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:text="VIDEO OFF"
+            android:textColor="@color/accent_blue"
+            android:textSize="11sp"
+            android:fontFamily="monospace" />
+    </FrameLayout>
+
+    <!-- Control pane -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.30"
+            android:fillViewport="true"
+            android:overScrollMode="ifContentScrolls">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DRIVE"
+                        android:textColor="@color/text_label"
+                        android:textSize="10sp"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.08" />
+
+                    <SeekBar
+                        android:id="@+id/driveScaleSeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:progressDrawable="@drawable/seekbar_progress"
+                        android:thumb="@drawable/seekbar_thumb" />
+
+                    <TextView
+                        android:id="@+id/driveScaleText"
+                        android:layout_width="38dp"
+                        android:layout_height="wrap_content"
+                        android:text="80%"
+                        android:textColor="@color/accent_blue"
+                        android:fontFamily="monospace"
+                        android:textSize="11sp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TURN"
+                        android:textColor="@color/text_label"
+                        android:textSize="10sp"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.08" />
+
+                    <SeekBar
+                        android:id="@+id/turnScaleSeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:progressDrawable="@drawable/seekbar_progress"
+                        android:thumb="@drawable/seekbar_thumb" />
+
+                    <TextView
+                        android:id="@+id/turnScaleText"
+                        android:layout_width="38dp"
+                        android:layout_height="wrap_content"
+                        android:text="85%"
+                        android:textColor="@color/accent_blue"
+                        android:fontFamily="monospace"
+                        android:textSize="11sp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <EditText
+                        android:id="@+id/hostInput"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:layout_marginTop="6dp"
+                        android:hint="Loomo IP"
+                        android:text="192.168.1.100"
+                        android:inputType="text"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_muted"
+                        android:background="@drawable/bg_input"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textSize="13sp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/controlPortInput"
+                        android:layout_width="60dp"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="6dp"
+                        android:hint="C"
+                        android:text="6666"
+                        android:inputType="number"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_muted"
+                        android:background="@drawable/bg_input"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/videoPortInput"
+                        android:layout_width="60dp"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="6dp"
+                        android:hint="V"
+                        android:text="6667"
+                        android:inputType="number"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_muted"
+                        android:background="@drawable/bg_input"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/connectButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="6dp"
+                        android:text="CONNECT"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_connect"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp" />
+
+                    <Button
+                        android:id="@+id/disconnectButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="6dp"
+                        android:text="DISC"
+                        android:textColor="@color/text_secondary"
+                        android:background="@drawable/btn_disconnect"
+                        android:textSize="11sp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:id="@+id/statusDot"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/indicator_dot" />
+
+                    <TextView
+                        android:id="@+id/statusText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Disconnected"
+                        android:textColor="@color/text_secondary"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/rttText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/text_muted"
+                        android:fontFamily="monospace"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/telemetryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_telemetry"
+                    android:padding="6dp"
+                    android:fontFamily="monospace"
+                    android:textSize="10sp"
+                    android:textColor="@color/accent_blue"
+                    android:text="v=0.000  w=0.000  dist=0.000  hdg=0.0" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.70"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.6"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/currentJoyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0.00 / 0.00"
+                    android:textColor="@color/text_muted"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:gravity="center_horizontal" />
+
+                <com.example.loomoremotepro.JoystickView
+                    android:id="@+id/joystickView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:minHeight="360dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="LOG"
+                        android:textColor="@color/text_muted"
+                        android:textSize="10sp"
+                        android:letterSpacing="0.15"
+                        android:textAllCaps="true" />
+
+                    <Button
+                        android:id="@+id/clearLogButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:text="CLEAR"
+                        android:textColor="@color/text_muted"
+                        android:background="@drawable/btn_surface"
+                        android:textSize="9sp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/logText"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_log"
+                    android:padding="10dp"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/log_text"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace"
+                    android:lineSpacingExtra="1dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

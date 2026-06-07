@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "com.sample.loomodemo"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+//    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'org.ini4j:ini4j:0.5.4'
+    // https://mvnrepository.com/artifact/com.segway.robot/sdkbase
+/*    implementation group: 'com.segway.robot', name: 'sdkbase', version: '0.1.99'
+    // https://mvnrepository.com/artifact/com.segway.robot/basic-class
+    implementation group: 'com.segway.robot', name: 'basic-class', version: '0.6.900'
+    // https://mvnrepository.com/artifact/com.segway.robot/basesdk
+    implementation group: 'com.segway.robot', name: 'basesdk', version: '0.6.1434'
+    // https://mvnrepository.com/artifact/com.segway.robot/headsdk
+    implementation group: 'com.segway.robot', name: 'headsdk', version: '0.6.1435'
+    // https://mvnrepository.com/artifact/com.segway.robot/sensorsdk
+    implementation group: 'com.segway.robot', name: 'sensorsdk', version: '0.6.1434'
+    // https://mvnrepository.com/artifact/com.segway.robot/speech-sdk
+    implementation group: 'com.segway.robot', name: 'speech-sdk', version: '0.6.335'
+    // https://mvnrepository.com/artifact/com.segway.robot/visionsdk
+    implementation group: 'com.segway.robot', name: 'visionsdk', version: '0.6.1149'
+    // https://mvnrepository.com/artifact/com.segway.robot/support-lib
+    implementation group: 'com.segway.robot', name: 'support-lib', version: '1.1.2'
+*/
+    implementation files('sdk/com.segway.robot/basic-class-0.6.900.aar')
+    implementation files('sdk/com.segway.robot/basesdk-0.6.1434.aar')
+    implementation files('sdk/com.segway.robot/sdkbase-0.1.99.aar')
+    implementation files('sdk/com.segway.robot/headsdk-0.6.1435.aar')
+    implementation files('sdk/com.segway.robot/visionsdk-0.6.1149.aar')
+    implementation files('sdk/com.segway.robot/sensorsdk-0.6.1434.aar')
+    implementation files('sdk/com.segway.robot/speech-sdk-0.6.335.aar')
+    implementation files('sdk/com.segway.robot/support-lib-1.1.2.aar')
+    implementation project(':opencv')
+}

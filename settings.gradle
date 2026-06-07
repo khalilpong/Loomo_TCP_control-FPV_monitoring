@@ -1,0 +1,5 @@
+rootProject.name = "LoomoDemo"
+include ':app'
+
+include ':opencv'
+project(':opencv').projectDir = new File('D:\\opencv4\\OpenCV-android-sdk\\sdk')
