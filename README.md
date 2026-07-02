@@ -18,11 +18,6 @@ phone controller app for remote driving with FPV video monitoring.
 - Android joystick UI with drive/turn scaling.
 - Connection status, RTT, telemetry, frame rate, and logs on the phone app.
 
-## Notes
-
-Generated build outputs, IDE metadata, local SDK files, and unrelated local
-folders are intentionally ignored and should not be committed.
-
 ---
 
 # Loomo TCP 控制与 FPV 图传监控
@@ -40,7 +35,3 @@ folders are intentionally ignored and should not be committed.
 - 通过独立 TCP 视频通道传输 FPV JPEG 图像帧。
 - 手机端提供摇杆控制界面，并支持直行和转向比例调节。
 - 手机端显示连接状态、RTT 延迟、遥测信息、图传帧率和运行日志。
-
-## 说明
-
-构建输出、IDE 配置、本地 SDK 文件以及与 Loomo 项目无关的本地文件夹不会提交到仓库。
