@@ -3,6 +3,13 @@
 This repository contains the Loomo-side TCP control service and an Android
 phone controller app for remote driving with FPV video monitoring.
 
+## What Is Loomo?
+
+Loomo is a two-wheeled self-balancing robot and personal transporter platform
+from Segway Robotics. In this project, Loomo is used as a mobile robot base:
+its onboard Android system runs the control/video service, while an external
+Android phone acts as the remote controller and FPV monitor.
+
 ## Project Structure
 
 - `app/` - Loomo Android project. It contains the TCP control server, video
@@ -23,6 +30,10 @@ phone controller app for remote driving with FPV video monitoring.
 # Loomo TCP 控制与 FPV 图传监控
 
 本仓库包含 Loomo 端的 TCP 控制服务，以及安卓手机端遥控 App。项目目标是让手机可以通过局域网远程控制 Loomo，并实时查看 Loomo 前方视角。
+
+## Loomo 是什么？
+
+Loomo 是 Segway Robotics 推出的双轮自平衡机器人/代步车平台。它可以理解为带有机器人能力的平衡车：底盘负责自平衡移动，机身上集成了摄像头、传感器和 Android 开发环境。本项目把 Loomo 作为移动机器人底盘使用，让 Loomo 端运行控制和图传服务，再由安卓手机端进行远程驾驶和画面监控。
 
 ## 项目结构
 
